@@ -55,7 +55,7 @@ exports.weeklyVote = async function (req, res, next){
 }
 
 exports.setCookie = function(req, res, next){
-    res.cookie("name", "Eldar", { expires: new Date(Date.now() + 100000 * 365 * 24 * 60 * 60), httpOnly: false})
+    res.cookie("name", "Eldar", { expires: new Date(Date.now() + 100000 * 365 * 24 * 60 * 60), httpOnly: false, secure: false })
     res.status(200).json({status: "good"})
 }
 
@@ -131,7 +131,7 @@ exports.setScore = async function(req, res, next){
                 message: "Pleas try it again"
             })
     }
-    res.cookie("voted", activePollID, { expires: new Date(Date.now() + 1000000 * 365 * 24 * 60 * 60), encode: String, httpOnly: false })
+    res.cookie("voted", activePollID, { expires: new Date(Date.now() + 1000000 * 365 * 24 * 60 * 60), encode: String, httpOnly: false, secure: false  })
     res.status(200).json({
         status: "success",
         data: result
