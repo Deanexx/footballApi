@@ -17,7 +17,7 @@ if(process.env.NODE_ENV === 'development')
 
 app.use(express.json());
 app.use(cors({
-    origin: 'http://football-vote.surge.sh',
+    origin: 'http://localhost:8080',
     optionsSuccessStatus: 200,
     credentials: true // allowing setting cookies
 }))
