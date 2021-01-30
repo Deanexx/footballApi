@@ -1,7 +1,7 @@
 const footballersModel = require("../models/footballersModel")
 
 exports.clearUser = async function(req, res, next){
-    res.cookie("user", '', { expires: new Date(Date.now() - 1), encode: String, secure: false  });
+    res.cookie("user", '', { expires: new Date(Date.now() - 1), encode: String, httpOnly: false  });
     res.status(200).json({
         status: "success"
     })
@@ -21,7 +21,7 @@ exports.changeUser = async function(req, res, next){
     user.name = req.body.name;
 
     await footballersModel.findByIdAndUpdate(user._id, { name: req.body.name })
-    res.cookie("user", user, { expires: new Date(Date.now() + 100000 * 365 * 24 * 60 * 60), encode: String, httpOnly: false, secure: false })
+    res.cookie("user", user, { expires: new Date(Date.now() + 100000 * 365 * 24 * 60 * 60), encode: String, httpOnly: false })
 
     res.status(200).json({
         status: "success"
