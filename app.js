@@ -17,7 +17,7 @@ if(process.env.NODE_ENV === 'development')
 
 app.use(express.json());
 app.use(cors({
-    origin: 'http://localhost:8080',
+    origin: 'https://football-vote-app.herokuapp.com',
     optionsSuccessStatus: 200,
     credentials: true // allowing setting cookies
 }))
